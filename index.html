@@ -1,168 +1,55 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>beadsy.id — Gelang Remaja Kekinian</title>
-  <meta name="description" content="beadsy.id: gelang handmade untuk remaja, warna pastel, customizable, dan super lucu." />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preload" href="assets/slide1.png" as="image">
-  <link rel="preload" href="assets/slide2.png" as="image">
-  <link rel="preload" href="assets/slide3.png" as="image">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>beadsy.id - Toko Gelang Remaja</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- floating pastel bubbles -->
-  <div class="bubble b1"></div>
-  <div class="bubble b2"></div>
-  <div class="bubble b3"></div>
-
-  <header class="navbar">
-    <div class="brand">
-      <img src="assets/logo.png" alt="logo beadsy.id" />
-      <span>beadsy.id</span>
-    </div>
+<header>
+    <div class="logo">beadsy.id</div>
     <nav>
-      <a href="#home">Beranda</a>
-      <a href="#catalog">Katalog</a>
-      <a href="#about">Tentang</a>
-      <a href="#contact">Kontak</a>
+        <a href="#home">Home</a>
+        <a href="#products">Katalog</a>
+        <a href="#checkout">Checkout</a>
     </nav>
-    <div class="actions">
-      <button id="cartBtn" class="btn primary">
-        🛍️ <span class="hide-sm">Keranjang</span> <span id="cartCount" class="badge">0</span>
-      </button>
+    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+</header>
+
+<section id="home" class="slider">
+    <div class="slides">
+        <img src="assets/slide1.png" alt="Gelang Trendy" />
+        <img src="assets/slide2.png" alt="Gelang Kekinian" />
+        <img src="assets/slide3.png" alt="Gelang Pastel" />
     </div>
-  </header>
+</section>
 
-  <main id="home">
-    <!-- HERO + SLIDER -->
-    <section class="hero">
-      <div class="slider" aria-roledescription="carousel">
-        <div class="slides">
-          <div class="slide active" style="background-image:url('assets/slide1.png')">
-            <div class="caption">
-              <h1><em>beadsy.id</em></h1>
-              <p>Gelang pastel untuk kamu yang fun & kreatif ✨</p>
-              <a href="#catalog" class="btn cta">Belanja Sekarang</a>
-            </div>
-          </div>
-          <div class="slide" style="background-image:url('assets/slide2.png')">
-            <div class="caption">
-              <h1>Custom Nama</h1>
-              <p>Tulis nama/initial kamu biar makin personal.</p>
-              <a href="#catalog" class="btn ghost">Lihat Varian</a>
-            </div>
-          </div>
-          <div class="slide" style="background-image:url('assets/slide3.png')">
-            <div class="caption">
-              <h1>Pastel • Cute • Trendy</h1>
-              <p>Warna soft yang cocok buat semua outfit.</p>
-              <a href="#about" class="btn ghost">Tentang Kami</a>
-            </div>
-          </div>
-        </div>
-        <button class="nav prev" aria-label="Sebelumnya">‹</button>
-        <button class="nav next" aria-label="Selanjutnya">›</button>
-        <div class="dots" role="tablist" aria-label="Slider bullets"></div>
-      </div>
-    </section>
+<section id="products">
+    <h2>Koleksi Gelang</h2>
+    <div class="product-grid" id="product-list"></div>
+</section>
 
-    <!-- CATALOG -->
-    <section id="catalog" class="section">
-      <h2>Katalog Pilihan</h2>
-      <p class="muted">Klik “Tambah” untuk memasukkan ke keranjang.</p>
-      <div id="catalogGrid" class="grid">
-        <!-- injected by JS -->
-      </div>
-    </section>
+<div id="cart" class="cart">
+    <h3>Keranjang Belanja</h3>
+    <div id="cart-items"></div>
+    <div class="cart-total">Total: Rp <span id="cart-total">0</span></div>
+    <button onclick="checkout()">Checkout</button>
+</div>
 
-    <!-- ABOUT -->
-    <section id="about" class="section two-col">
-      <div>
-        <h2>Tentang beadsy.id</h2>
-        <p>
-          Hai, aku pemilik <strong>beadsy.id</strong>! Kita bikin gelang handmade
-          yang cute & kekinian buat remaja. Semua dibuat dengan hati dan bisa custom
-          sesuai gaya kamu. Warna dasar putih & pink pastel biar vibes-nya clean tapi manis.
-        </p>
-        <ul class="ticks">
-          <li>Custom nama/initial & ukuran</li>
-          <li>Packaging gift-ready</li>
-          <li>Diskon bestie (beli bareng 3+)</li>
-          <li>Open pre-order warna spesial</li>
-        </ul>
-      </div>
-      <div class="about-card">
-        <h3>Jam Operasional</h3>
-        <p>Setiap Hari • 09.00–21.00</p>
-        <h3>Lokasi</h3>
-        <p>Jl. Manis No. 8, Kota MuDA</p>
-        <h3>Kontak</h3>
-        <p><a href="mailto:hello@beadsy.id">hello@beadsy.id</a></p>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="contact" class="section cta-band">
-      <h2>Mau pesanan custom?</h2>
-      <p>DM Instagram atau langsung tambah ke keranjang & checkout.</p>
-      <div class="cta-buttons">
-        <a class="btn primary" href="#catalog">Belanja</a>
-        <a class="btn ghost" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- CART DRAWER -->
-  <aside id="cartDrawer" class="drawer" aria-hidden="true" role="dialog">
-    <div class="drawer-header">
-      <h3>Keranjang</h3>
-      <button id="closeCart" class="btn ghost" aria-label="Tutup">✕</button>
+<div id="checkout-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCheckout()">&times;</span>
+        <h2>Form Checkout</h2>
+        <form id="checkout-form">
+            <input type="text" placeholder="Nama" required />
+            <input type="email" placeholder="Email" required />
+            <input type="text" placeholder="Alamat" required />
+            <button type="submit">Kirim Pesanan</button>
+        </form>
     </div>
-    <div id="cartItems" class="drawer-body"></div>
-    <div class="drawer-footer">
-      <div class="total">
-        <span>Total</span>
-        <strong id="cartTotal">Rp0</strong>
-      </div>
-      <button id="checkoutBtn" class="btn cta">Checkout</button>
-    </div>
-  </aside>
+</div>
 
-  <!-- CHECKOUT MODAL -->
-  <div id="checkoutModal" class="modal" aria-hidden="true" role="dialog">
-    <div class="modal-card">
-      <div class="modal-head">
-        <h3>Checkout</h3>
-        <button id="closeCheckout" class="btn ghost" aria-label="Tutup">✕</button>
-      </div>
-      <form id="checkoutForm" class="form">
-        <label>Nama Lengkap
-          <input name="name" required placeholder="Nama kamu" />
-        </label>
-        <label>Email
-          <input name="email" type="email" required placeholder="email@contoh.com" />
-        </label>
-        <label>Alamat
-          <textarea name="address" required placeholder="Alamat lengkap pengiriman"></textarea>
-        </label>
-        <label>Metode Pembayaran
-          <select name="payment" required>
-            <option value="">Pilih</option>
-            <option>Transfer Bank</option>
-            <option>E-Wallet</option>
-            <option>COD</option>
-          </select>
-        </label>
-        <button class="btn primary" type="submit">Buat Pesanan</button>
-      </form>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <p>© <span id="year"></span> beadsy.id — Handmade with ♥</p>
-  </footer>
-
-  <script src="app.js" defer></script>
+<script src="script.js"></script>
 </body>
 </html>
