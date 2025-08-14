@@ -1,55 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>beadsy.id - Toko Gelang Remaja</title>
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>cake.id — Birthday Cakes</title>
+  <meta name="description" content="cake.id: birthday cake custom, elegan, dan aesthetic. Warna pastel pink & yellow.">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" href="assets/slide1.png" as="image">
+  <link rel="preload" href="assets/slide2.png" as="image">
+  <link rel="preload" href="assets/slide3.png" as="image">
+  <link rel="preload" href="assets/slide4.png" as="image">
 </head>
 <body>
-<header>
-    <div class="logo">beadsy.id</div>
+  <div class="bg-blob b1"></div>
+  <div class="bg-blob b2"></div>
+
+  <header class="navbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="cake.id logo" />
+      <span>cake.id</span>
+    </div>
     <nav>
-        <a href="#home">Home</a>
-        <a href="#products">Katalog</a>
-        <a href="#checkout">Checkout</a>
+      <a href="#home">Beranda</a>
+      <a href="#shop">Katalog</a>
+      <a href="#about">Tentang</a>
+      <a href="#contact">Kontak</a>
     </nav>
-    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
-</header>
-
-<section id="home" class="slider">
-    <div class="slides">
-        <img src="assets/slide1.png" alt="Gelang Trendy" />
-        <img src="assets/slide2.png" alt="Gelang Kekinian" />
-        <img src="assets/slide3.png" alt="Gelang Pastel" />
+    <div class="actions">
+      <button id="cartBtn" class="btn primary">🛒 <span class="hide-sm">Keranjang</span> <span id="cartCount" class="badge">0</span></button>
     </div>
-</section>
+  </header>
 
-<section id="products">
-    <h2>Koleksi Gelang</h2>
-    <div class="product-grid" id="product-list"></div>
-</section>
+  <main id="home">
+    <section class="hero">
+      <div class="slider" aria-roledescription="carousel">
+        <div class="slides">
+          <div class="slide active" style="background-image:url('assets/slide1.png')">
+            <div class="slide-caption"><h1>Birthday Cakes, Custom & Aesthetic</h1><p>Elegan, minimal, dan cocok untuk momen spesial.</p><a class="btn cta" href="#shop">Order Sekarang</a></div>
+          </div>
+          <div class="slide" style="background-image:url('assets/slide2.png')">
+            <div class="slide-caption"><h1>Minimal Buttercream</h1><p>Design clean yang timeless.</p></div>
+          </div>
+          <div class="slide" style="background-image:url('assets/slide3.png')">
+            <div class="slide-caption"><h1>Character & Theme</h1><p>Kustom sesuai tema pesta.</p></div>
+          </div>
+          <div class="slide" style="background-image:url('assets/slide4.png')">
+            <div class="slide-caption"><h1>Pastel Rainbow</h1><p>Vibrant namun soft.</p></div>
+          </div>
+        </div>
+        <button class="nav prev" aria-label="Sebelumnya">‹</button>
+        <button class="nav next" aria-label="Selanjutnya">›</button>
+        <div class="dots" role="tablist" aria-label="Slider bullets"></div>
+      </div>
+    </section>
 
-<div id="cart" class="cart">
-    <h3>Keranjang Belanja</h3>
-    <div id="cart-items"></div>
-    <div class="cart-total">Total: Rp <span id="cart-total">0</span></div>
-    <button onclick="checkout()">Checkout</button>
-</div>
+    <section id="shop" class="section">
+      <div class="section-head">
+        <h2>Katalog Cake</h2>
+        <div class="filters">
+          <button class="chip active" data-filter="all">Semua</button>
+          <button class="chip" data-filter="custom">Custom</button>
+          <button class="chip" data-filter="photo">Photo Cake</button>
+          <button class="chip" data-filter="mini">Mini Box</button>
+        </div>
+      </div>
+      <p class="muted">Pilih ukuran, jumlah, lalu tambahkan ke keranjang.</p>
+      <div id="productGrid" class="grid"></div>
+    </section>
 
-<div id="checkout-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeCheckout()">&times;</span>
-        <h2>Form Checkout</h2>
-        <form id="checkout-form">
-            <input type="text" placeholder="Nama" required />
-            <input type="email" placeholder="Email" required />
-            <input type="text" placeholder="Alamat" required />
-            <button type="submit">Kirim Pesanan</button>
-        </form>
+    <section id="about" class="section two-col">
+      <div>
+        <h2>Tentang cake.id</h2>
+        <p>cake.id membuat birthday cake yang elegan & aesthetic. Cocok untuk ulang tahun, event, dan kejutan manis. Semua cake dibuat manual oleh pastry chef berpengalaman.</p>
+        <ul class="ticks"><li>Custom flavor & design</li><li>Free message card</li><li>Delivery & pick-up</li><li>Pre-order 3 hari kerja</li></ul>
+      </div>
+      <div class="about-card">
+        <h3>Jam Operasional</h3><p>Setiap Hari • 08.00–20.00</p>
+        <h3>Kontak</h3><p><a href="mailto:hello@cake.id">hello@cake.id</a></p>
+      </div>
+    </section>
+
+    <section id="contact" class="section cta-band">
+      <h2>Mau order custom?</h2>
+      <p>DM Instagram atau langsung tambahkan ke keranjang dan checkout.</p>
+      <div class="cta-buttons"><a class="btn primary" href="#shop">Order</a><a class="btn ghost" href="https://instagram.com" target="_blank">Instagram</a></div>
+    </section>
+  </main>
+
+  <aside id="cartDrawer" class="drawer" aria-hidden="true" role="dialog">
+    <div class="drawer-header"><h3>Keranjang</h3><button id="closeCart" class="btn ghost">✕</button></div>
+    <div id="cartItems" class="drawer-body"></div>
+    <div class="drawer-footer"><div class="total"><span>Total</span><strong id="cartTotal">Rp0</strong></div><button id="checkoutBtn" class="btn cta">Checkout</button></div>
+  </aside>
+
+  <div id="checkoutModal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-card"><div class="modal-head"><h3>Checkout</h3><button id="closeCheckout" class="btn ghost">✕</button></div>
+      <form id="checkoutForm" class="form">
+        <label>Nama Lengkap<input name="name" required placeholder="Nama kamu" /></label>
+        <label>Email<input name="email" type="email" required placeholder="email@contoh.com" /></label>
+        <label>Alamat<textarea name="address" required placeholder="Alamat pengiriman"></textarea></label>
+        <label>Metode Pembayaran<select name="payment" required><option value="">Pilih</option><option>Transfer Bank</option><option>E-Wallet</option><option>COD</option></select></label>
+        <button class="btn primary" type="submit">Buat Pesanan</button>
+      </form>
     </div>
-</div>
+  </div>
 
-<script src="script.js"></script>
+  <footer class="footer"><p>© <span id="year"></span> cake.id • Handmade with ♥</p></footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
